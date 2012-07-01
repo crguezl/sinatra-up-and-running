@@ -1,0 +1,17 @@
+task :default => :shotgun
+
+desc "Run rps.rb with ruby"
+task :rps do
+  sh "ruby -I. rps.rb"
+end
+
+desc "Run rps.rb with shotgun"
+task :shotgun do
+  sh "shotgun -I. rps.rb"
+end
+
+desc "Remove the data base"
+task :clean do
+  sh "rm rps.db"
+end
+

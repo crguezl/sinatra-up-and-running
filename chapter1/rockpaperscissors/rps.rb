@@ -6,9 +6,22 @@ require 'sinatra'
 before do
   content_type :txt
   @defeat = { rock: :scissors, paper: :rock, scissors: :paper}
-  @throws = @defeats.keys
+  @throws = @defeat.keys
 end
 
-get '/throw/.type' do
-  
+get '/throw/:type' do
+  # the params hash stores querystring and form data
+  player_throw = params[:type].to_sym
+
+  halt(403, "You must throw one of the following: '#{@throws.join(', ')}'") unless @throws.include? player_throw
+
+  computer_throw = @throws.sample
+
+  if player_throw == computer_throw 
+    "Computer chooses: #{computer_throw}. There is a tie"
+  elsif player_throw = @defeat[computer_throw]
+    "Computer wins; #{computer_throw} defeats #{player_throw}"
+  else
+    "Well done. #{player_throw} beats #{computer_throw}"
+  end
 end
