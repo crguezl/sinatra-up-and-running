@@ -9,6 +9,7 @@ class MyApp < Sinatra::Base
     "Hello from MyApp!"
   end
 
-  $ $0 is the executed file
+  # $0 is the executed file
+  # # __FILE__ is the current file
   run! if __FILE__ == $0
 end
