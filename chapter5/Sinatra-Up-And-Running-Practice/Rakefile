@@ -1,0 +1,5 @@
+desc "run server"
+task :default => %w{config.ru modular_application1.rb} do
+  sh "rackup -s thin -p 4567"
+end
+
