@@ -1,0 +1,19 @@
+1.- $ ruby -e "p Gem::Specification.find_by_name('sinatra').gem_dir"
+"/Users/casiano/.rvm/gems/ruby-1.9.3-p125/gems/sinatra-1.3.2"
+
+2.- $ tail /Users/casiano/.rvm/gems/ruby-1.9.3-p125/gems/sinatra-1.3.2/lib/sinatra.rb 
+
+      libdir = File.dirname(__FILE__)
+      $LOAD_PATH.unshift(libdir) unless $LOAD_PATH.include?(libdir)
+
+      require 'sinatra/base'
+      require 'sinatra/main'
+
+      enable :inline_templates
+3.- $ tail /Users/casiano/.rvm/gems/ruby-1.9.3-p125/gems/sinatra-1.3.2/lib/sinatra/main.rb 
+
+      at_exit { Application.run! if $!.nil? && Application.run? }
+    end
+
+    include Sinatra::Delegator
+
