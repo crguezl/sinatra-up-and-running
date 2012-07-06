@@ -1,0 +1,12 @@
+%html  
+  %head  
+    %title This is the Title in a title tag within the head tag  
+  %body  
+    %h1= MyApp.settings
+    %ul
+      %li foo    = #{MyApp.foo}
+      %li foo?   = #{MyApp.foo?}
+      %li bar(3) = #{MyApp.bar(3)}
+      %li bar(1) = #{MyApp.bar(1)}
+
+
