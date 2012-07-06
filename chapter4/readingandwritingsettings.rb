@@ -14,5 +14,20 @@ if settings.admin_access?
 end
 
 get '/' do
-  "<h1>#{settings.title}</h1>"
+  <<"EOS"
+   <h1>#{settings.title}</h1>
+   <ul>
+   <li>settings.absolute_redirects = #{settings.absolute_redirects}
+   <li>settings.app_file = #{settings.app_file}
+   <li>settings.bind = #{settings.bind}
+   <li>settings.default_encoding = #{settings.default_encoding}
+   <li>settings.environment = #{settings.environment}
+   <li>settings.protection = #{settings.protection}
+   <li>settings.root = #{settings.root}
+   <li>settings.sessions = #{settings.sessions}
+   <li>settings.threaded = #{settings.threaded}
+   <li>settings.views = #{settings.views}
+   </ul>
+
+EOS
 end
