@@ -7,3 +7,8 @@ desc "run readingandwritingsettings.rb"
 task :rws do
   sh "ruby readingandwritingsettings.rb"
 end
+
+desc "run subclassing.rb"
+task :sub do
+  sh "ruby subclassing.rb"
+end

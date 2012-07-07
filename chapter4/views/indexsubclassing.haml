@@ -1,0 +1,11 @@
+%html  
+  %head  
+    %title This is the Title in a title tag within the head tag  
+  %body  
+    %h1= CustomApp.settings
+    %ul
+      %li CustomApp.foo    = #{CustomApp.foo}
+      %li GeneralApp.foo   = #{GeneralApp.foo}
+      %li CustomApp.bar    = #{CustomApp.bar}
+    %a{ :href => "/about"} See about
+
