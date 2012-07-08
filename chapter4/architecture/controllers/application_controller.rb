@@ -1,4 +1,4 @@
-class Applicationcontroller < Sinatra::Base
+class ApplicationController < Sinatra::Base
   helpers ApplicationHelper
 
   set :views, File.expand_path('../../views', __FILE__)

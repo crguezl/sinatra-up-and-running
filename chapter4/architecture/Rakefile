@@ -1,0 +1,4 @@
+desc "run the server"
+task :default do
+  sh "rackup -s thin -p 4567"
+end
