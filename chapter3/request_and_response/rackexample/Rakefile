@@ -1,0 +1,4 @@
+desc "run 'lobster.ru' example"
+task :default do
+  sh "rackup -I. lobster.ru"
+end

@@ -1,0 +1,14 @@
+Rack defines a protocol for communication between an application object 
+(provided by the webapp: Sinatra, Rails, etc.) and a HTTP server (thin, webrick, mongrel ...)
+
+A Rack application is a Ruby object that responds
+to a method named "call". The method "call" takes exactly one argument, 
+the "environment" and returns
+an "Array" of exactly three values: 
+  1. The status code, (for example 200) 
+  2. the headers (a hash-like object), and 
+  3. the body (an array-like object. Has to respond to "each").
+
+The application object is usually referred as an "end-point"
+The server is often called the "handler"
+
