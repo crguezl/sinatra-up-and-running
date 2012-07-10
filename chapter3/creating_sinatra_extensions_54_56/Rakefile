@@ -1,0 +1,9 @@
+desc "run app.rb"
+task :app do
+  sh "shotgun app.rb"
+end
+
+desc "run app_helper"
+task :apph do
+  sh "shotgun app_helper.rb"
+end
