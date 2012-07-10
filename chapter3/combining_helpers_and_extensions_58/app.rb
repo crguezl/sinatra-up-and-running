@@ -26,7 +26,8 @@ __END__
   %li
     %a(href = "#{link(:about)}") about
   %li
-    %a(href = "#{link(:random)}") random
+    -# We can insert HTML inside Haml, and sometimes is the best you can do
+    <a href="#{link(:random)}">random</a>
 
 %form{ :action => "/", :method => "post"}
   %fieldset
