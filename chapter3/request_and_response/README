@@ -1,3 +1,6 @@
+Dealing with HTTP is simple: you get
+a request and return a response. 
+
 Rack defines a protocol for communication between an application object 
 (provided by the webapp: Sinatra, Rails, etc.) and a HTTP server (thin, webrick, mongrel ...)
 
