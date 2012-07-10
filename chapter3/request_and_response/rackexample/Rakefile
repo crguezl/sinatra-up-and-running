@@ -2,3 +2,8 @@ desc "run 'lobster.ru' example"
 task :default do
   sh "rackup -I. lobster.ru"
 end
+
+desc "run rack/lobster.rb ((runs forever. Be ready to kill))"
+task :run do
+  sh "ruby rack/lobster.rb"
+end
