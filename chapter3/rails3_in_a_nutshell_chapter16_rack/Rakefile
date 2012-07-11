@@ -12,3 +12,8 @@ desc "rackup config_3"
 task :t3 do
   sh "rackup config_3.ru"
 end
+
+desc "get answer"
+task :a do
+  sh "curl http://localhost:9292"
+end
