@@ -3,6 +3,7 @@
 # inside our code in the form of the "request" object
 
 require 'sinatra'
+require 'haml'
 
 
   get '/:x?' do
@@ -22,12 +23,10 @@ __END__
   %li 
     env['PATH_INFO'] = #{env['PATH_INFO']}
   %li
-    request.path_info = #{request.path_info}
+    request.path_info = #{request.path_info} (<i>the same</i>)
   %li
-    -#<a href="#{link(:random)}">random</a>
-    response.finish = #{@final_result}
+    response.finish = #{@final_result} (<i>an array</i>)
   %li
-    -# 3
     response.finish.length = #{@final_result.length} 
   %li
     response.finish.first = #{@final_result.first}
