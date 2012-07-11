@@ -29,5 +29,7 @@ class MiddleWare
   end
 end
 
+# Add class MiddleWare to rack middleware/pipeline
 use MiddleWare
+# run the rack app
 run MyApp
