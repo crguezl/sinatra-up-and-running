@@ -1,5 +1,11 @@
 MyApp = proc do |env|
-  [200, {'Content-Type' => 'text/plain'}, [ 'ok' ]]
+   puts "env in MyApp:"
+   env.keys.sort.each do |k|
+     puts "#{k} => #{env[k]}"
+   end
+   puts "====================================="
+
+  [200, {'Content-Type' => 'text/html'}, [ '<h1>ok</h1>' ]]
 end
 
 class MiddleWare
@@ -8,12 +14,17 @@ class MiddleWare
   end
 
   def call(env)
-    puts "env:"
+    puts "env in MiddleWare:"
+    env.keys.sort.each do |k|
+      puts "#{k} => #{env[k]}"
+    end
+    puts "*************************************"
 
     if env['PATH_INFO'] =~ %r{^/a*$}
+      env['PATH_INFO'].upcase!
       @app.call(env)
     else
-      [404, {'Content-Type' => 'text/plain'}, ['not ok']]
+      [404, {'Content-Type' => 'text/html'}, ['<h1>not ok</h1>']]
     end
   end
 end
