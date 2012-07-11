@@ -1,0 +1,54 @@
+# From http://stackoverflow.com/questions/2256569/what-is-rack-middleware
+
+Rack middleware is more than "a way to filter a request and response"
+- it's an implementation of the pipeline design pattern for web
+servers using Rack.
+
+It very cleanly separates out the different stages of processing a
+request - separation of concerns being a key goal of all well
+designed software products.
+
+
+
+For example with Rack I can have separate stages of the pipeline
+doing
+
+Authentication - when the request arrives, are the users logon
+details correct? How do I validate this OAuth, HTTP Basic Authentication,
+name/password?
+
+Authorisation - is the user authorised to perform this particular
+task i.e. role-based security
+
+Caching - have I processed this request already, can I return a
+cached result?
+
+Decoration - how can I enhance the request to make downstream
+processing better
+
+Performance & Usage Monitoring - what stats can I get from the
+request & response?
+
+Execution - actually handle the request and provide a response
+
+Being able to separate the different stages (and optionally include
+them) is a great help in developing well structured applications
+
+
+Community
+
+There's also a great eco-system developing around Rack Middleware
+- you should be able to find pre-built rack components to do all
+of the steps above and more see here
+
+
+What's middleware?
+
+Middleware is a dreadful term which refers to any software
+component/library which assists with but is not directly involved
+in the execution of some task. Very common examples are logging,
+authentication and the other common, horizontal processing components.
+These tend to be the things that everyone needs across multiple
+applications but not too many people are interested (or should be)
+in building themselves.
+
