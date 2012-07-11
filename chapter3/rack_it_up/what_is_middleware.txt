@@ -8,8 +8,6 @@ It very cleanly separates out the different stages of processing a
 request - separation of concerns being a key goal of all well
 designed software products.
 
-
-
 For example with Rack I can have separate stages of the pipeline
 doing
 
