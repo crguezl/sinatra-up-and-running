@@ -1,0 +1,25 @@
+See:
+  http://ofps.oreilly.com/titles/9780596521424/rack.html
+
+Rails 3 in a Nutshell.  Chapter 16. Rack
+
+    Rack is a simple specification and Ruby library for connecting web
+    servers to web applications. Because each web server has a different
+    API, it has traditionally been required for Ruby web framework
+    developers to write an adapter for each web server they wanted their
+    framework to support. Given m web frameworks and n web servers you
+    end up with m * n web server adapters being implemented. This is
+    clearly not a sustainable approach or a valuable use of a framework
+    developer's time. The Rack specification is based on the Web Server
+    Gateway Interface (WSGI) utilized by Python web applications.
+    Basically, the specification defines two things: an environment,
+    which is a hash that contains CGI-like headers describing the request
+    and a response, which is an array of values including the response
+    code, response headers, and response body.
+    ...
+
+    Rack is based on the concept of a "request environment". The environment
+    is a hash of CGI-like headers. For details on the exact format and
+    requirements of the Rack environment you can view the complete Rack
+    spec at 
+           http://rack.rubyforge.org/doc/files/SPEC.html.

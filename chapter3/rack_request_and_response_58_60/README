@@ -15,5 +15,10 @@ an "Array" of exactly three values:
 The application object is usually referred as an "end-point"
 The server is often called the "handler"
 
-- my_sinatra.rb pages 59-60
-- rackexample https://github.com/chneukirchen/rack/tree/master/example
+The examples in this directory were taken from:
+
+  - my_sinatra.rb pages 59-60
+  - rackexample https://github.com/chneukirchen/rack/tree/master/example
+
+See Chapter 16. Rack of the book "Rails in a Nutshell"
+  http://ofps.oreilly.com/titles/9780596521424/rack.html
