@@ -1,3 +1,9 @@
+desc "Run the middleware example at page 61"
 task :default do
   sh "rackup -s thin -p 4567 config_61.ru"
+end
+
+desc "See the X--runtime header for service 'sinatra_and_middleware_example3_15_62.rb'"
+task :xruntime do
+  sh "curl -I 0.0.0.0:4567"
 end
