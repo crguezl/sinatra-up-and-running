@@ -1,3 +1,4 @@
+require 'pp'
 require 'zlib'
 
 require 'rack/request'
@@ -16,9 +17,11 @@ module Rack
     puts LobsterString
 
     def call(env)
-      puts "env:\n#{env.inspect}\n\n"
+      puts "env:"
+      PP.pp(env)
       req = Request.new(env)
-      puts "request:\n#{req.inspect}\n\n"
+      puts "request:"
+      PP.pp req
       if req.GET["flip"] == "left"
         lobster = LobsterString.split("\n").
           map { |line| line.ljust(42).reverse }.
@@ -27,18 +30,17 @@ module Rack
         href = "?flip=right"
       elsif req.GET["flip"] == "crash"
         raise "Lobster crashed"
-      elsif req.GET["flip"] == "right"
+      else 
         lobster = LobsterString
         href = "?flip=left"
-      else
-        raise "Invalid option: Lobster crashed"
       end
 
       res = Response.new
       res.write drawlobster(lobster, href)
       res.finish
 
-      puts "response:\n#{res.inspect}\n\n"
+      puts "response:"
+      PP.pp res
 
       res
     end

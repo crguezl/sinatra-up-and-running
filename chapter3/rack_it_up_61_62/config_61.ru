@@ -1,8 +1,8 @@
+require 'pp'
+
 MyApp = proc do |env|
    puts "env in MyApp:"
-   env.keys.sort.each do |k|
-     puts "#{k} => #{env[k]}"
-   end
+   PP.pp(env)
    puts "====================================="
 
   [200, {'Content-Type' => 'text/html'}, [ '<h1>ok</h1>' ]]
@@ -15,9 +15,7 @@ class MiddleWare
 
   def call(env)
     puts "env in MiddleWare:"
-    env.keys.sort.each do |k|
-      puts "#{k} => #{env[k]}"
-    end
+    PP.pp(env)
     puts "*************************************"
 
     if env['PATH_INFO'] =~ %r{^/a*$}
