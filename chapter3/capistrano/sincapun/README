@@ -1,5 +1,0 @@
-http://software.tulentsev.com/2012/03/deploying-with-sinatra-capistrano-unicorn/
-
-gem install unicorn
-
-bundle exec ruby sincapun.rb
