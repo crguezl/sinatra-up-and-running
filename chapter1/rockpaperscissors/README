@@ -1,0 +1,9 @@
+- Use ruby 1.9.2 or later 
+- Optionally: Install rvm and learn to use it
+- Install  the following gems
+    gem install sinatra
+    gem install shotgun
+    gem install haml
+    gem install rails (not really necessary)
+- To see the options for the Rakefile run
+   rake -T
