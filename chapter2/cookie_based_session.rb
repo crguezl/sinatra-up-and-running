@@ -11,7 +11,7 @@ configure do
 end
 
 before do
-  content_type :text
+  content_type :txt
 end
 
 get '/set' do
