@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <div>
+      Your session: <%=h session[:name] %>
+    </div>
+    <form method="POST" action="/">
+      <div>
+        Enter name:
+        <input type="text" name="name" />
+      </div>
+      <div>
+        <input type="submit" />
+      </div>
+    </form>
+    <form method="POST" action"/clear">
+      <input type="submit" value="Clear Session" />
+    </form>
+  </body>
+</html>
