@@ -1,27 +1,25 @@
+# coding: utf-8
 # page 46. Example 2-37.
 require 'sinatra'
-
-set server: 'thin', connections: []
 
 before do
   content_type :txt
 end
 
-
-connections = []
+set server: 'thin', connections: []
 
 get '/consume' do
   stream(:keep_open) do |out|
     # store connection for later on
-    connections << out
+    settings.connections << out
 
     # remove connection when closed properly
-    out.callback { connections.delete(out) }
+    out.callback { settings.connections.delete(out) }
 
     # remove connection when due to an error
     out.errback do
       logger.warn 'we just lost the connection!'
-      connections.delete(out)
+      settings.connections.delete(out)
     end
 
   end # stream
@@ -29,7 +27,7 @@ end
 
 
 get '/broadcast/:message' do
-  connections.each do |out|
+  settings.connections.each do |out|
     out << "#{Time.now} -> #{params[:message]}" << "\n"
   end
 
