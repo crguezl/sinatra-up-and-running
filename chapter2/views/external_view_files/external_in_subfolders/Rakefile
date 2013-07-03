@@ -1,3 +1,4 @@
+PORT = 9292
 task :default => :server
 
 desc "run server"
@@ -6,11 +7,12 @@ task :server do
 end
 
 desc "make a get /pepe/profile request via curl"
-task :profile do
-  sh "curl -v localhost:9292/pepe/profile"
+task :profile, :name do |t, h|
+  user = h['name'] || 'pepe'
+  sh "curl -v localhost:#{PORT}/#{user}/profile"
 end
 
 desc "make a get /pepe/help request via curl"
 task :help do 
-  sh "curl -v localhost:9292/pepe/help"
+  sh "curl -v localhost:#{PORT}/pepe/help"
 end
