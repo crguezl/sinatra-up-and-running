@@ -1,3 +1,16 @@
-task :default do
+task :default => :server
+
+desc "run server"
+task :server do
   sh "rackup"
+end
+
+desc "make a get / request via curl"
+task :root do
+  sh "curl -v localhost:9292"
+end
+
+desc "make a get /index request via curl"
+task :index do 
+  sh "curl -v localhost:9292/index"
 end
