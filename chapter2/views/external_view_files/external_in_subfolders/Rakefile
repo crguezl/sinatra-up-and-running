@@ -1,0 +1,16 @@
+task :default => :server
+
+desc "run server"
+task :server do
+  sh "rackup"
+end
+
+desc "make a get /pepe/profile request via curl"
+task :profile do
+  sh "curl -v localhost:9292/pepe/profile"
+end
+
+desc "make a get /pepe/help request via curl"
+task :help do 
+  sh "curl -v localhost:9292/pepe/help"
+end
