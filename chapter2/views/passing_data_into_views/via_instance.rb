@@ -5,7 +5,7 @@ class App < Sinatra::Base
   get '/*' do |name|
     def some_template
        <<-'HAMLTEMP'
-%o
+%ol
   - @foo.each do |item|
     %li 
       %i #{item}
