@@ -1,4 +1,5 @@
 require 'sinatra'
+require 'pp'
 
 set :server, :thin
 set :connections, []
@@ -10,11 +11,11 @@ end
 get '/' do
   # keep stream open
   stream(:keep_open) do |out| 
-    puts out.inspect
-    puts out.class
-    puts out.instance_variables
-    puts out.class.class_variables
-    puts out.methods(false)
+    pp out.inspect
+    pp out.class
+    pp out.instance_variables
+    pp out.class.class_variables
+    pp out.methods(false)
     settings.connections << out 
   end
 end

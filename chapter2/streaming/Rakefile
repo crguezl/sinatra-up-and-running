@@ -1,0 +1,21 @@
+task :default => :server
+
+desc "run the server for the stream(:keep_open) example"
+task :server do
+  sh "ruby a_simple_streaming_example.rb"
+end
+
+desc "visit with browser 'localhost:4567/consume'"
+task :consume do
+  sh "open http://localhost:4567/consume"
+end
+
+desc "send messages to the consumer"
+task :produce do
+ (1..10).each do |i|
+   sh "sleep 1; curl http://localhost:4567/produce/#{i}%0D"
+ end
+end
+
+desc "start both consumer and producer"
+task :all => [ :consume, :produce ]

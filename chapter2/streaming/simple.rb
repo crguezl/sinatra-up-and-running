@@ -7,7 +7,7 @@ set server: 'thin'
 
 get '/' do
   stream do |out|
-    puts out.methods
+    puts out.class
     out.puts "Hello World!", "How are you?"
     out.write "Written #{out.pos} bytes so far!\n"
     out.putc(65) unless out.closed?
