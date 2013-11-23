@@ -1,4 +1,5 @@
 require 'sinatra'
+require 'sinatra/streaming'
 
 before do
   content_type :txt
@@ -31,7 +32,7 @@ end
 
 get '/produce/:message' do
   settings.connections.each do |out|
-    out << "#{Time.now} -> #{params[:message]}" << "\n"
+    out.puts "#{Time.now} -> #{params[:message]}" << "\n"
   end
 
   "Sent #{params[:message]} to all clients."
